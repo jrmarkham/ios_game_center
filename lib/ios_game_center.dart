@@ -4,7 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
 
-enum SigninResultType {
+enum SignInResultType {
   SUCCESS,
   NOT_SIGNED_IN,
   ERROR_SIGNIN,
@@ -29,12 +29,12 @@ class Account {
 }
 
 
-class SigninResult {
-  SigninResultType type;
+class SignInResult {
+  SignInResultType type;
   Account account;
   String message;
 
-  bool get success => type == SigninResultType.SUCCESS;
+  bool get success => type == SignInResultType.SUCCESS;
 }
 
 
@@ -43,18 +43,18 @@ class IOSGameCenter {
   static const MethodChannel _channel =
       const MethodChannel('plugin.markhamenterprises.com/ios_game_center');
 
-  static Future<SigninResult> get signIn async {
+  static Future<SignInResult> get signIn async {
     final Map<dynamic, dynamic> _response = await _channel.invokeMethod('getSignIn');
 
     if( _response['response'] != 'success') {
-      final SigninResultType type =  SigninResultType.NOT_SIGNED_IN;
-      SigninResult result = new SigninResult()..type = type;
+      final SignInResultType type =  SignInResultType.NOT_SIGNED_IN;
+      SignInResult result = new SignInResult()..type = type;
       result.message =  _response['message'];
       return result;
     }
 
-    final SigninResultType type =  SigninResultType.SUCCESS;
-    SigninResult result = new SigninResult()..type = type;
+    final SignInResultType type =  SignInResultType.SUCCESS;
+    SignInResult result = new SignInResult()..type = type;
     result.account = Account()
       ..id =  _response['id']
     ..displayName =  _response['displayName']
