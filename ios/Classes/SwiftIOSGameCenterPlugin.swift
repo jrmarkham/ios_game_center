@@ -14,8 +14,7 @@ func signInUser(result: @escaping FlutterResult) {
      let player = GKLocalPlayer.local
     player.authenticateHandler = { vc, error in
       guard error == nil else {
-      let error:[String: Any] = ["response" : "failure", "message":"NIL error
-       in iOS"]
+      let error:[String: Any] = ["response" : "failure", "message":"NIL error"]
        result(error)
         return
       }

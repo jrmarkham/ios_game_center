@@ -1,7 +1,7 @@
 name: ios_game_center
 description: A wrapper for iOS Game Center including auth and player info,
   leaderboard and more.
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/jrmarkham/ios_game_center.git
 
 
