@@ -15,7 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Map<dynamic, dynamic>  _results = {'type': 'failed'};
+  SigninResult _results;
 
   @override
   void initState() {
@@ -25,13 +25,13 @@ class _MyAppState extends State<MyApp> {
 
   // Platform messages are asynchronous, so we initialize in an async method.
   Future<void> signIn() async {
-    Map<dynamic, dynamic> results;
+    SigninResult results;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       results = await IOSGameCenter.signIn;
       debugPrint('_signIn');
     } on PlatformException {
-      results = {'type': 'failed in flutter'};
+      results = null;
     }
     if (!mounted) return;
 
@@ -48,7 +48,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Plugin example app'),
         ),
         body: Center(
-          child: Text('Sign On: ${_results.toString()}'),
+          child: Text('Sign On: ${_results!=null? _results.toString():'not connected'}'),
 
         ),
       ),

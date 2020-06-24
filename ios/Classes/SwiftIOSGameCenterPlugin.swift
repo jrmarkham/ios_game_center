@@ -14,7 +14,8 @@ func signInUser(result: @escaping FlutterResult) {
      let player = GKLocalPlayer.local
     player.authenticateHandler = { vc, error in
       guard error == nil else {
-      let error:[String: Any] = ["type" : "FAILURE", "message":"NIL error in iOS", "success":false, "account":""]
+      let error:[String: Any] = ["response" : "failure", "message":"NIL error
+       in iOS"]
        result(error)
         return
       }
@@ -29,12 +30,12 @@ func signInUser(result: @escaping FlutterResult) {
             playerID = player.playerID
          }
 
-         let results:[String: Any] = ["type" :"SUCCESS", "success":true,
-         "message":"player connect to game center", "account" :["id":playerID, "displayName": player.displayName,"email":""]]
+         let results:[String: Any] = ["response" :"success","message":"player connect to game center", "id":playerID,
+         "displayName": player.displayName,"email":""]
 
         result(results)
       } else {
-         let error:[String: Any] = ["type" : "FAILURE", "message":"player auth failed", "success":false,"account":""]
+         let error:[String: Any] = ["response" : "failure", "message":"player auth failed"]
         result(error)
       }
     }

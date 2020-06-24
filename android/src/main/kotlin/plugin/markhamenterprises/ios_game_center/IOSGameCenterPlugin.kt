@@ -28,7 +28,7 @@ public class IOSGameCenterPlugin: FlutterPlugin, MethodCallHandler {
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
     if (call.method == "getSignIn") {
-      val results: Map<String, String> =  hashMapOf("type" to "FAILURE","success" to "false", "account" to "", "message" to "No android functionality")
+      val results: Map<String, String> =  hashMapOf("response" to "failure","message" to "No android functionality")
       result.success(results)
     } else {
       result.notImplemented()
