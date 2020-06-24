@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - ios_game_center (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - ios_game_center (from `.symlinks/plugins/ios_game_center/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  ios_game_center:
+    :path: ".symlinks/plugins/ios_game_center/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  ios_game_center: ed0b207512a08dd2029c26b4e3704c10da473462
+
+PODFILE CHECKSUM: c34e2287a9ccaa606aeceab922830efb9a6ff69a
+
+COCOAPODS: 1.9.3
