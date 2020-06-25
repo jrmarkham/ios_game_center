@@ -1,6 +1,6 @@
 # ios_game_center
 
-Flutter wrapper for the iOS Game Center -- GameKit. There is an excellent wrapper for Android : https://pub.dev/packages/play_games which is well maintained. I designed the API for this plugin to resemble the API of that plugin.
+Flutter wrapper for the iOS Game Center: GameKit. There is an excellent wrapper for Android : https://pub.dev/packages/play_games which is well maintained. I designed the API for this plugin to resemble the API of that plugin.
 
 ## Part 1: Sign In 
 The sign in is a method, and the return is an object that contains a success boolean and player data if successful. The return is a Future.
@@ -13,7 +13,7 @@ The sign in is a method, and the return is an object that contains a success boo
     }
     this.loading = false;
 
-Note : Sometimes GameCenter will hang and seem to connect, but a connection will fail (you get the GameCenter welcome banner,  but the app won't be connected). I believe this is an issue more for developers who test on their phone's and are switching between account. If this happens then close the app. Logout and in of GameCenter directly then try the app again.
+Note : Sometimes Game Center will hang and seem to connect, but a connection will fail (you get the GameCenter welcome banner,  but the app won't be connected). I believe this is an issue more for developers who test on their phone's and are switching between accounts. If this happens then close the app. Logout and in of GameCenter directly then try the app again.
     
     
 The Game Center Sign In will prompt on any app, but to actually connect you should add the GameCenter Service to your app via xCode.

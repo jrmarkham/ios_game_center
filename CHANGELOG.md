@@ -12,3 +12,9 @@
 * Swift code fix
 ## 0.0.7
 * Complete Swift code fix
+## 0.0.8
+* Complete updates for workable version
+## 0.0.9
+* Bug fix
+## 0.0.10
+* Bug fix

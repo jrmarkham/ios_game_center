@@ -9,7 +9,7 @@ import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
 
-/** IosGameCenterPlugin */
+/** IOSGameCenterPlugin */
 public class IOSGameCenterPlugin: FlutterPlugin, MethodCallHandler {
   private lateinit var channel : MethodChannel
 

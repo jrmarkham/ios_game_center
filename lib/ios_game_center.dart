@@ -67,13 +67,13 @@ class IOSGameCenter {
 
 
   // ACHIEVEMENTS
-  static Future<bool> showAchievements() async => await _channel.invokeMethod('showAchievements');
+  static Future<bool> showAchievements() async => await _channel.invokeMethod('showAchievements') == "success";
   static Future<bool> unlockAchievement(String id) async => await _channel.invokeMethod(
-  'submitScore', {'id': id}) == "success";
+  'unlockAchievement', {'id': id}) == "success";
 
   static Future<bool> setPercentAchievement({@required String id, @required double percent}) async {
     return await _channel
-        .invokeMethod('setPercentAchievement', {'id': id, 'percent': percent});
+        .invokeMethod('setPercentAchievement', {'id': id, 'percent': percent}) == "success";
   }
 
 
