@@ -12,10 +12,9 @@
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/build" />
-      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/example/build/app/intermediates/flutter/debug/flutter_assets/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/example/build/app/intermediates/merged_assets/debug/out/flutter_assets/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/example/build/ios/Debug-iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/example/build/ios/iphonesimulator/Runner.app/Frameworks/App.framework/flutter_assets/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/example/build" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/.symlinks/plugins/ios_game_center/example/ios/Flutter/App.framework/flutter_assets/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Flutter/App.framework/flutter_assets/packages" />
     </content>

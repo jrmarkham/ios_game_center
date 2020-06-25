@@ -6,3 +6,5 @@
 * Tweak map for SignIn
 ## 0.0.4
 * Bug Fix
+## 0.0.5
+* Add core displays and reporting scores for leaderboards and achievements 
