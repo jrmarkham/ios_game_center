@@ -5,13 +5,12 @@ import 'package:flutter/services.dart';
 
 enum SignInResultType {
   SUCCESS,
-  NOT_SIGNED_IN,
-  ERROR_SIGNIN,
-  ERROR_FETCH_PLAYER_PROFILE,
-  ERROR_NOT_SIGNED_IN,
-  ERROR_ANDROID,
-  ERROR_SIGN_OUT
+  ERROR,
+  ERROR_NOT_SIGN_IN,
+  ERROR_ANDROID
 }
+
+SignInResultType getSignType(String text)=> SignInResultType.values.firstWhere((SignInResultType type) => describeEnum(type)== text);
 
 class Account {
   String id;
@@ -41,22 +40,23 @@ class IOSGameCenter {
 
   static Future<SignInResult> get signIn async {
     final Map<dynamic, dynamic> _response = await _channel.invokeMethod('getSignIn');
-    if( _response['response'] != 'success') {
-      final SignInResultType type =  SignInResultType.NOT_SIGNED_IN;
-      SignInResult result = new SignInResult()..type = type;
-      result.message =  _response['message'];
-      return result;
-    }
+    final SignInResultType type = getSignType(_response['response']);
+    debugPrint ('response ${_response['response']}');
+    debugPrint ('type ${type.toString()}');
 
-    final SignInResultType type =  SignInResultType.SUCCESS;
     SignInResult result = new SignInResult()..type = type;
-    result.account = Account()
-      ..id =  _response['id']
-    ..displayName =  _response['displayName'];
-    // TO DO ADD IMAGE CONNECTION
     result.message =  _response['message'];
-     return result;
-  }
+
+    if(result.type == SignInResultType.SUCCESS) {
+      result.account = Account (
+      )
+        ..id = _response['id']
+        ..displayName = _response['displayName'];
+      // TO DO ADD IMAGE CONNECTION
+
+    }
+    return result;
+     }
 
   // LEADERBOARD
   static Future<bool> showLeaderboard(String id) async => await _channel
@@ -70,7 +70,7 @@ class IOSGameCenter {
   static Future<bool> unlockAchievement(String id) async => await _channel.invokeMethod(
   'submitScore', {'id': id}) == "success";
 
-  static Future<bool> incrementAchievement({@required String id, @required int increment}) async {
+  static Future<bool> incrementAchievement({@required String id, @required double increment}) async {
     return await _channel
         .invokeMethod('incrementAchievement', {'id': id, 'increment': increment});
   }
