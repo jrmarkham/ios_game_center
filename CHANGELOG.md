@@ -10,3 +10,5 @@
 * Add core displays and reporting scores for leaderboards and achievements 
 ## 0.0.6
 * Swift code fix
+## 0.0.7
+* Complete Swift code fix

@@ -98,22 +98,26 @@ func signInUser(result: @escaping FlutterResult) {
       }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    let args = call.arguments as! [String:Any]
+
     switch call.method {
         case "getSignIn":
             signInUser(result:result)
         case "showLeaderboard":
-             let id = args ["id"] as! String
+        let args = call.arguments as! [String:String]
+        let id = args ["id"]!
              showLeaderboard(id:id,result:result)
         case "submitScore":
+        let args = call.arguments as! [String:Any]
              let id = args ["id"] as! String
              let score = args["score"] as! Int64
              submitScore(id:id, score:score, result:result )
         case "showAchievements":showAchievements(result:result)
         case "unlockAchievement":
-             let id = args ["id"] as! String
+        let args = call.arguments as! [String:String]
+        let id = args ["id"]!
              unlockAchievement(id:id,result:result)
         case "incrementAchievement":
+        let args = call.arguments as! [String:Any]
              let id = args ["id"] as! String
              let increment = args ["increment"] as! Double
              incrementAchievement(id:id, increment:increment, result:result)
