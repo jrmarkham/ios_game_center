@@ -41,7 +41,7 @@ func signInUser(result: @escaping FlutterResult) {
     func showLeaderboard(id: String, result: @escaping FlutterResult) {
         let vc = GKGameCenterViewController()
         vc.gameCenterDelegate = self
-        vc.viewState = .achievements
+        vc.viewState = .leaderboards
         vc.leaderboardIdentifier = id
         viewController.present(vc, animated: true, completion: nil)
         result("success")
