@@ -83,10 +83,10 @@ func signInUser(result: @escaping FlutterResult) {
       }
 
     // INCREMENT
-      func incrementAchievement(id: String, increment: Double,
+      func setPercentAchievement(id: String, percent: Double,
       result: @escaping FlutterResult) {
         let achievement = GKAchievement(identifier: id)
-        achievement.percentComplete = increment
+        achievement.percentComplete = percent
         achievement.showsCompletionBanner = true
         GKAchievement.report([achievement]) { (error) in
           guard error == nil else {
@@ -113,14 +113,14 @@ func signInUser(result: @escaping FlutterResult) {
              submitScore(id:id, score:score, result:result )
         case "showAchievements":showAchievements(result:result)
         case "unlockAchievement":
-        let args = call.arguments as! [String:String]
-        let id = args ["id"]!
+            let args = call.arguments as! [String:String]
+            let id = args ["id"]!
              unlockAchievement(id:id,result:result)
-        case "incrementAchievement":
-        let args = call.arguments as! [String:Any]
-             let id = args ["id"] as! String
-             let increment = args ["increment"] as! Double
-             incrementAchievement(id:id, increment:increment, result:result)
+        case "setPercentAchievement":
+            let args = call.arguments as! [String:Any]
+            let id = args ["id"] as! String
+            let percent = args ["percent"] as! Double
+            setPercentAchievement(id:id, percent:percent, result:result)
         default:
             result("unimplemented")
             break

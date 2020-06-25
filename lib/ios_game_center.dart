@@ -67,46 +67,20 @@ class IOSGameCenter {
 
 
   // ACHIEVEMENTS
+  static Future<bool> showAchievements() async => await _channel.invokeMethod('showAchievements');
   static Future<bool> unlockAchievement(String id) async => await _channel.invokeMethod(
   'submitScore', {'id': id}) == "success";
 
-  static Future<bool> incrementAchievement({@required String id, @required double increment}) async {
+  static Future<bool> setPercentAchievement({@required String id, @required double percent}) async {
     return await _channel
-        .invokeMethod('incrementAchievement', {'id': id, 'increment': increment});
+        .invokeMethod('setPercentAchievement', {'id': id, 'percent': percent});
   }
 
-  static Future<bool> showAchievements() async => await _channel.invokeMethod('showAchievements');
 
 
 
 
-//  SCORE RESULTS
-//  static SubmitScoreResults _parseSubmitScore(Map<dynamic, dynamic> map)
-//
-//  static SubmitScoreSingleResult _parseSubmitSingleScore(Map<dynamic, dynamic> map)
-//
-//  static Future<ScoreResults> loadTopScoresByName(
-//      String leaderboardName, TimeSpan timeSpan, int maxResults,
-//      {CollectionType collectionType = CollectionType.COLLECTION_PUBLIC,
-//        bool forceReload = false})
-//
-//  static Future<ScoreResults> loadTopScoresById(
-//      String leaderboardId, TimeSpan timeSpan, int maxResults,
-//      {CollectionType collectionType = CollectionType.COLLECTION_PUBLIC,
-//        bool forceReload = false})
-//
-//  static Future<ScoreResults> loadPlayerCenteredScoresByName(
-//      String leaderboardName, TimeSpan timeSpan, int maxResults,
-//      {CollectionType collectionType = CollectionType.COLLECTION_PUBLIC,
-//        bool forceReload = false})
-//
-//  static Future<ScoreResults> loadPlayerCenteredScoresById(
-//      String leaderboardId, TimeSpan timeSpan, int maxResults,
-//      {CollectionType collectionType = CollectionType.COLLECTION_PUBLIC,
-//        bool forceReload = false})
-//
-//  static ScoreResults _parseScoreResults(Map<dynamic, dynamic> map)
-//  static ScoreResult _parseScoreResult(Map<dynamic, dynamic> map)
+
 
 
 }

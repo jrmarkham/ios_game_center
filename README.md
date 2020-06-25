@@ -36,17 +36,20 @@ Posting a score:
 To submit you'll need to pass an id (String), and a score (int).  Return a
  success boolean as a Future.
 
-    IOSGameCenter.unlockAchievement(achievementID)
+    IOSGameCenter.submitScore({@required String id, @required int score})
 
 ## Part 2: Achievements 
 Show Achievements:
-Opening an Achievement is a straight method call and return a Future boolean:
+Opening the Achievements list is a straight method call and return a Future boolean:
 
     IOSGameCenter.showAchievements();
 
 Post Achievements:
-To post achievements you need to send an achievement id, again it should be a bundle id. Unlock complete the achievement and increment will set the current percentage. So you need to track the achievement progress in your code. This returns a Future boolean:
+To post achievements you need to send an achievement id (String), again it should be a bundle id. The unlockAchievement complete the achievement and setPercentAchievement will set the current percentage as percent (double). So you need to track the achievement progress in your code. This returns a Future boolean:
 
-    IOSGameCenter.unlockAchievement(achievementID);
+    IOSGameCenter.unlockAchievement(games.mydomain.gamename.achievement_id);
     
-    IOSGameCenter.incrementAchievement(id: achievementID, increment: percent);
+    IOSGameCenter.setPercentAchievement(id: games.mydomain.gamename.achievement_id, percent: percent);
+    
+## Part 3: Future Development
+Retrieve score data for both leaderboards and achievements. Get Image data for users. Pulls and collaborations welcome.   
