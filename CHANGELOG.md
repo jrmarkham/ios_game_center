@@ -18,3 +18,7 @@
 * Bug fix
 ## 0.0.10
 * Bug fix
+## 0.0.11
+* Bug fix
+## 0.1.0
+* All Methods tested ready for use.

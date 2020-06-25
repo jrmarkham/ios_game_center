@@ -71,7 +71,7 @@ func signInUser(result: @escaping FlutterResult) {
     // UNLOCK
     func unlockAchievement(id: String, result: @escaping FlutterResult) {
         let achievement = GKAchievement(identifier: id)
-        achievement.percentComplete = 100
+        achievement.percentComplete = 100.0
         achievement.showsCompletionBanner = true
         GKAchievement.report([achievement]) { (error) in
           guard error == nil else {
@@ -115,7 +115,7 @@ func signInUser(result: @escaping FlutterResult) {
         case "unlockAchievement":
             let args = call.arguments as! [String:String]
             let id = args ["id"]!
-             unlockAchievement(id:id,result:result)
+             unlockAchievement(id:id, result:result)
         case "setPercentAchievement":
             let args = call.arguments as! [String:Any]
             let id = args ["id"] as! String
