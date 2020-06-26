@@ -2,24 +2,24 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-// ENUM for Sign In Results
+/// ENUM for Sign In Results
 enum SignInResultType {
   SUCCESS,
   ERROR,
   ERROR_NOT_SIGN_IN,
   ERROR_ANDROID
 }
-// Convert String response to Enum
+/// Convert String response to Enum
 SignInResultType getSignType(String text)=> SignInResultType.values.firstWhere((SignInResultType type) => describeEnum(type)== text);
 
-// Account Object contains id and display name
-// todo :: add image access
+/// Account Object contains id and display name
+/// todo :: add image access
 class Account {
   String id;
   String displayName;
 }
 
-// Sign In Object::
+/// Sign In Object::
 class SignInResult {
   SignInResultType type;
   Account account;
@@ -28,12 +28,12 @@ class SignInResult {
 }
 
 
-// Plugin Class for Game Center:::
-// signIn must be called first :::
+/// Plugin Class for Game Center:::
+/// signIn must be called first :::
 class IOSGameCenter {
   static const MethodChannel _channel = const MethodChannel('plugin.markhamenterprises.com/ios_game_center');
 
-  // signIn call make this connection early in your code configuration
+  /// signIn call make this connection early in your code configuration
   static Future<SignInResult> get signIn async {
     final Map<dynamic, dynamic> _response = await _channel.invokeMethod('getSignIn');
     final SignInResultType type = getSignType(_response['response']);
@@ -45,26 +45,26 @@ class IOSGameCenter {
       result.account = Account ()
         ..id = _response['id']
         ..displayName = _response['displayName'];
-      // TO DO ADD IMAGE CONNECTION
+      /// TO DO ADD IMAGE CONNECTION
     }
     return result;
   }
 
-  // LEADERBOARD
-  // show leaderboard must specify a particular leaderboard by id (String)
+  /// LEADERBOARD
+  /// show leaderboard must specify a particular leaderboard by id (String)
   static Future<bool> showLeaderboard(String id) async => await _channel
       .invokeMethod('showLeaderboard', {'id': id}) == "success";
-  // submit leaderboard score ::: id (String) && score (int)
+  /// submit leaderboard score ::: id (String) && score (int)
   static Future<bool> submitScore({@required String id, @required int score}) async => await _channel.invokeMethod(
         'submitScore', {'id': id, 'score': score}) == "success";
 
-  // ACHIEVEMENTS
-  // show achievements
+  /// ACHIEVEMENTS
+  /// show achievements
   static Future<bool> showAchievements() async => await _channel.invokeMethod('showAchievements') == "success";
-  // unlock an achievement ::: id (String)
+  /// unlock an achievement ::: id (String)
   static Future<bool> unlockAchievement(String id) async => await _channel.invokeMethod(
   'unlockAchievement', {'id': id}) == "success";
-  // set percentage for an achievement ::: id (String) && percent (double) 0.01-100.00
+  /// set percentage for an achievement ::: id (String) && percent (double) 0.01-100.00
   static Future<bool> setPercentAchievement({@required String id, @required double percent}) async {
     return await _channel
         .invokeMethod('setPercentAchievement', {'id': id, 'percent': percent}) == "success";

@@ -22,3 +22,7 @@
 * Bug fix
 ## 0.1.0
 * All Methods tested ready for use.
+## 0.1.1
+* Update documentation
+## 0.1.2
+* Update documentation
