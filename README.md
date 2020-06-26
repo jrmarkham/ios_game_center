@@ -18,12 +18,12 @@ Note : Sometimes Game Center will hang and seem to connect, but a connection wil
     
 The Game Center Sign In will prompt on any app, but to actually connect you should add the GameCenter Service to your app via xCode.
 
-![](_image/gamecenter_01.jpg)
+![](https://sandbox.markhamenterprises.com/_images/gamecenter_01.jpg)
     
     
 Score Functions. You'll need to go to the App Store Connect (https://appstoreconnect.apple.com), Then select your app, then select Features, then Game Center, and there you add achievements and leaderboards.
 
-![](_image/gamecenter_02.jpg)
+![](https://sandbox.markhamenterprises.com/_images/gamecenter_02.jpg)
  
 
 ## Part 2: Leaderboard

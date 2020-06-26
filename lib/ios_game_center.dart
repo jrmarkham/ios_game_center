@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-
+// ENUM for Signi
 enum SignInResultType {
   SUCCESS,
   ERROR,
